@@ -8,7 +8,7 @@ export const LoadingScreen = (props) =>
   const { progress, total, loaded, item } = useProgress()
   const [showStartButton, setShowStartButton] = useState(false)
   const [ showLoading, setShowLoading ] = useState(true)
-  const [ playStartSound ] = useSound('./assets/audio/hello.wav', { volume: 0.3, interrupt: true })
+  // const [ playStartSound ] = useSound('./assets/audio/hello.wav', { volume: 0.3, interrupt: true })
   const [ playBackgroundMusic ] = useSound('./assets/audio/beach.mp3', { volume: 0.2, loop: true })
 
   useEffect(() => 

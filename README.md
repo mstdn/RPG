@@ -1,6 +1,6 @@
-# Froggy
+# RPG
 
-Play live on: [froggy.stux.me](https://froggy.stux.me)
+Play live on: [rpg.stux.me](https://rpg.stux.me)
 
 
 ### Run it locally

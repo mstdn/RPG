@@ -124,8 +124,8 @@ const Player = forwardRef((props, ref) =>
     const [ subscribeKeys, getKeys ] = useKeyboardControls()
     const { rapier, world } = useRapier()
     const character = useRef()
-    const [ playAttackSound ] = useSound('./assets/audio/whoosh.flac', { volume: 0.5, interrupt: true })
-    const [ playImpactSound ] = useSound('./assets/audio/impact.mp3', { volume: 0.3, interrupt: true })
+    const [ playAttackSound ] = useSound('./assets/audio/rpg/swoosh.wav', { volume: 0.9, interrupt: true })
+    const [ playImpactSound ] = useSound('./assets/audio/rpg/impact.wav', { volume: 0.6, interrupt: true })
 
     const origin = useRef()
     const target = useRef()
@@ -165,7 +165,7 @@ const Player = forwardRef((props, ref) =>
                         z: - (originBlock.z - targetBlock.z) * 100 
                     } )
                     hit.collider.parent().applyTorqueImpulse( { x: 50, y: 50, z: 50 } )
-            }, 1000)
+            }, 900)
             // hit.collider.parent().applyImpulseAtPoint(10, hit.point, true)
             // console.log(hit.collider.parent().bodyType())
             // console.log(hit.collider.parent())

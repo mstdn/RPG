@@ -10,7 +10,7 @@ const SCALE = 1.5
 
 const Coin = (props) => 
 {
-    const [ playCoinSound ] = useSound('./assets/audio/coin.wav')
+    const [ playCoinSound ] = useSound('./assets/audio/rpg/coin.wav')
     const { coin, char, dis } = props
     const increaseCoins = useGame(state => state.increaseCoins)
     const { nodes, materials } = useGLTF("./assets/models/coin.glb")

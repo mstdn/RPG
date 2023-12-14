@@ -77,7 +77,7 @@ export default function Texts(props)
                 position={ [ 0, 6.8, 14.9 ] }
                 pos={ [ 0, 0, 14.9 ] }
                 rotationY={ - Math.PI * 1 }
-                color={ "#ffffff" }
+                color={ "#ffd7b8" }
                 size={ 0.8 }
                 width={ 8 }
                 lineHeight={ 2 }
