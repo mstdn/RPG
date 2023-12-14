@@ -1,0 +1,38 @@
+{
+  "name": "froggy",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "4.0",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.31",
+    "tailwindcss": "^3.3.5",
+    "vite": "^4.3.9"
+  },
+  "dependencies": {
+    "@react-spring/three": "^9.7.3",
+    "@react-three/drei": "^9.90.1",
+    "@react-three/fiber": "^8.15.9",
+    "@react-three/postprocessing": "^2.15.11",
+    "@react-three/rapier": "^1.2.0",
+    "@theatre/core": "^0.7.0",
+    "@theatre/r3f": "^0.7.0",
+    "@theatre/studio": "^0.7.0",
+    "@types/three": "^0.158.1",
+    "ecctrl": "^1.0.50",
+    "leva": "^0.9.35",
+    "r3f-perf": "^7.1.2",
+    "react": "18.2",
+    "react-device-detect": "^2.2.3",
+    "react-dom": "18.2",
+    "three": "^0.159.0",
+    "three-stdlib": "^2.28.7",
+    "use-sound": "^4.0.1",
+    "zustand": "^4.4.6"
+  }
+}

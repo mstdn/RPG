@@ -1,0 +1,12 @@
+image: alpine:latest
+
+pages:
+  stage: deploy
+  script:
+  - gzip -k -6 $(find public -type f)
+  artifacts:
+    paths:
+    - dist
+  publish: dist
+  only:
+  - main

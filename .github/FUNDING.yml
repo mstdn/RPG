@@ -1,0 +1,11 @@
+# These are supported funding model platforms
+
+github: [mstdn]
+patreon: mstdn
+open_collective: mstdn
+ko_fi: mstdn
+liberapay: mstdn
+issuehunt: # Replace with a single IssueHunt username
+otechie: # Replace with a single Otechie username
+lfx_crowdfunding: # Replace with a single LFX Crowdfunding project-name e.g., cloud-foundry
+custom: ['https://bunq.me/stuxhost', 'https://paypal.me/stuxOS']
