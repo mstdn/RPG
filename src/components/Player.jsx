@@ -10,110 +10,108 @@ const LIMIT = 200
 
 const Character = forwardRef((props, character) =>
 {
-    const { nodes, materials, animations } = useGLTF("./assets/models/brute.glb")
+    const { nodes, materials, animations } = useGLTF("./assets/models/wizard.glb")
     const { actions } = useAnimations(animations, character)
 
     return (
-        // <group scale={ 0.8 } ref={character} {...props} dispose={null}>
+        <group scale={ 0.8 } ref={character} {...props} dispose={null}>
+            <skinnedMesh
+                castShadow
+                receiveShadow
+                name="mesh_char_19"
+                geometry={nodes.mesh_char_19.geometry}
+                material={materials._019_Wizzir}
+                skeleton={nodes.mesh_char_19.skeleton}
+            />
+            <primitive object={nodes.mixamorigHips} />
+        </group>
+        // <group scale={ 0.02 } ref={character} {...props} dispose={null}>
+        //     <group name="MaleBruteA_Meshes">
         //     <skinnedMesh
+        //       castShadow
+        //       receiveShadow
+        //       name="BattleAxe_GEO"
+        //       geometry={nodes.BattleAxe_GEO.geometry}
+        //       material={materials.blinn7}
+        //       skeleton={nodes.BattleAxe_GEO.skeleton}
+        //     />
+        //     <skinnedMesh
+        //       castShadow
+        //       receiveShadow
+        //       name="MaleBruteA_Hair"
+        //       geometry={nodes.MaleBruteA_Hair.geometry}
+        //       material={materials.MaleBruteA_Hair6}
+        //       skeleton={nodes.MaleBruteA_Hair.skeleton}
+        //     />
+        //     <skinnedMesh
+        //       castShadow
+        //       receiveShadow
+        //       name="MaleBruteA_Bottoms"
+        //       geometry={nodes.MaleBruteA_Bottoms.geometry}
+        //       material={materials.MaleBruteA_Bottom5}
+        //       skeleton={nodes.MaleBruteA_Bottoms.skeleton}
+        //     />
+        //     <skinnedMesh
+        //       castShadow
+        //       receiveShadow
+        //       name="MaleBruteA_Shoes"
+        //       geometry={nodes.MaleBruteA_Shoes.geometry}
+        //       material={materials.MaleBruteA_Shoes6}
+        //       skeleton={nodes.MaleBruteA_Shoes.skeleton}
+        //     />
+        //     <skinnedMesh
+        //       castShadow
+        //       receiveShadow
+        //       name="MaleBruteA_Moustaches"
+        //       geometry={nodes.MaleBruteA_Moustaches.geometry}
+        //       material={materials.MaleBruteA_Moustache5}
+        //       skeleton={nodes.MaleBruteA_Moustaches.skeleton}
+        //     />
+        //     <skinnedMesh
+        //       castShadow
+        //       receiveShadow
+        //       name="MaleBruteA_Eyes"
+        //       geometry={nodes.MaleBruteA_Eyes.geometry}
+        //       material={materials.EyeSpec_MAT4}
+        //       skeleton={nodes.MaleBruteA_Eyes.skeleton}
+        //     />
+        //     <skinnedMesh
+        //       castShadow
+        //       receiveShadow
+        //       name="MaleBruteA_Eyelashes"
+        //       geometry={nodes.MaleBruteA_Eyelashes.geometry}
+        //       material={materials.Lashes_MAT4}
+        //       skeleton={nodes.MaleBruteA_Eyelashes.skeleton}
+        //     />
+        //     <group name="MaleBruteA_Body">
+        //       <skinnedMesh
         //         castShadow
         //         receiveShadow
-        //         name="mesh_char_104_1"
-        //         geometry={nodes.mesh_char_104_1.geometry}
-        //         material={materials._010_Froggy}
-        //         skeleton={nodes.mesh_char_104_1.skeleton}
-        //         morphTargetDictionary={nodes.mesh_char_104_1.morphTargetDictionary}
-        //         morphTargetInfluences={nodes.mesh_char_104_1.morphTargetInfluences}
+        //         name="mesh_7"
+        //         geometry={nodes.mesh_7.geometry}
+        //         material={materials.Body_MAT4}
+        //         skeleton={nodes.mesh_7.skeleton}
+        //       />
+        //       <skinnedMesh
+        //         castShadow
+        //         receiveShadow
+        //         name="mesh_7_1"
+        //         geometry={nodes.mesh_7_1.geometry}
+        //         material={materials.EyeSpec_MAT2}
+        //         skeleton={nodes.mesh_7_1.skeleton}
+        //       />
+        //     </group>
+        //     <skinnedMesh
+        //       castShadow
+        //       receiveShadow
+        //       name="MaleBruteA_Earrings"
+        //       geometry={nodes.MaleBruteA_Earrings.geometry}
+        //       material={materials.phong4}
+        //       skeleton={nodes.MaleBruteA_Earrings.skeleton}
         //     />
-        //     <primitive object={nodes.mixamorigHips} />
+        //   </group>
+        //   <primitive object={nodes.mixamorigHips} />
         // </group>
-        <group scale={ 0.02 } ref={character} {...props} dispose={null}>
-            <group name="MaleBruteA_Meshes">
-            <skinnedMesh
-              castShadow
-              receiveShadow
-              name="BattleAxe_GEO"
-              geometry={nodes.BattleAxe_GEO.geometry}
-              material={materials.blinn7}
-              skeleton={nodes.BattleAxe_GEO.skeleton}
-            />
-            <skinnedMesh
-              castShadow
-              receiveShadow
-              name="MaleBruteA_Hair"
-              geometry={nodes.MaleBruteA_Hair.geometry}
-              material={materials.MaleBruteA_Hair6}
-              skeleton={nodes.MaleBruteA_Hair.skeleton}
-            />
-            <skinnedMesh
-              castShadow
-              receiveShadow
-              name="MaleBruteA_Bottoms"
-              geometry={nodes.MaleBruteA_Bottoms.geometry}
-              material={materials.MaleBruteA_Bottom5}
-              skeleton={nodes.MaleBruteA_Bottoms.skeleton}
-            />
-            <skinnedMesh
-              castShadow
-              receiveShadow
-              name="MaleBruteA_Shoes"
-              geometry={nodes.MaleBruteA_Shoes.geometry}
-              material={materials.MaleBruteA_Shoes6}
-              skeleton={nodes.MaleBruteA_Shoes.skeleton}
-            />
-            <skinnedMesh
-              castShadow
-              receiveShadow
-              name="MaleBruteA_Moustaches"
-              geometry={nodes.MaleBruteA_Moustaches.geometry}
-              material={materials.MaleBruteA_Moustache5}
-              skeleton={nodes.MaleBruteA_Moustaches.skeleton}
-            />
-            <skinnedMesh
-              castShadow
-              receiveShadow
-              name="MaleBruteA_Eyes"
-              geometry={nodes.MaleBruteA_Eyes.geometry}
-              material={materials.EyeSpec_MAT4}
-              skeleton={nodes.MaleBruteA_Eyes.skeleton}
-            />
-            <skinnedMesh
-              castShadow
-              receiveShadow
-              name="MaleBruteA_Eyelashes"
-              geometry={nodes.MaleBruteA_Eyelashes.geometry}
-              material={materials.Lashes_MAT4}
-              skeleton={nodes.MaleBruteA_Eyelashes.skeleton}
-            />
-            <group name="MaleBruteA_Body">
-              <skinnedMesh
-                castShadow
-                receiveShadow
-                name="mesh_7"
-                geometry={nodes.mesh_7.geometry}
-                material={materials.Body_MAT4}
-                skeleton={nodes.mesh_7.skeleton}
-              />
-              <skinnedMesh
-                castShadow
-                receiveShadow
-                name="mesh_7_1"
-                geometry={nodes.mesh_7_1.geometry}
-                material={materials.EyeSpec_MAT2}
-                skeleton={nodes.mesh_7_1.skeleton}
-              />
-            </group>
-            <skinnedMesh
-              castShadow
-              receiveShadow
-              name="MaleBruteA_Earrings"
-              geometry={nodes.MaleBruteA_Earrings.geometry}
-              material={materials.phong4}
-              skeleton={nodes.MaleBruteA_Earrings.skeleton}
-            />
-          </group>
-          <primitive object={nodes.mixamorigHips} />
-        </group>
     )
 })
 
@@ -165,7 +163,7 @@ const Player = forwardRef((props, ref) =>
                         z: - (originBlock.z - targetBlock.z) * 100 
                     } )
                     hit.collider.parent().applyTorqueImpulse( { x: 50, y: 50, z: 50 } )
-            }, 900)
+            }, 500)
             // hit.collider.parent().applyImpulseAtPoint(10, hit.point, true)
             // console.log(hit.collider.parent().bodyType())
             // console.log(hit.collider.parent())
@@ -250,7 +248,7 @@ const Player = forwardRef((props, ref) =>
         }
     })
     
-    const characterURL = "./assets/models/brute.glb"
+    const characterURL = "./assets/models/wizard.glb"
     const animationSet = 
     {
         idle: "Idle",
@@ -278,7 +276,7 @@ const Player = forwardRef((props, ref) =>
                 camMinDis={ - 0.1 }
                 animated={ true }
                 position={ [ 0, 20, 0 ] }
-                maxVelLimit={ 2 }
+                maxVelLimit={ 3 }
                 sprintMult={ 3 }
                 jumpVel={ 6 }
                 autoBalanceDampingOnY={ 0.01 }
@@ -298,7 +296,7 @@ const Player = forwardRef((props, ref) =>
                     <group>
                         <Character
                             ref={ character }
-                            position={ [ 0,  - 1, 0 ] }
+                            position={ [ 0,  - 0.95, 0 ] }
                         />
                         <group position={ [ 0, 0.5, 4 ] } ref={ target }>
                             {/* <mesh>
@@ -319,4 +317,4 @@ const Player = forwardRef((props, ref) =>
 
 export default Player
 
-useGLTF.preload("./assets/models/brute.glb")
+useGLTF.preload("./assets/models/wizard.glb")
