@@ -85,22 +85,19 @@ const Block = (props) =>
 /**
  *  Dark stone
  */
-const Stone = (props) => 
+const Rocks = (props) => 
 {
-    const ground = useTexture('./assets/textures/sand.jpg')
-    ground.wrapS = ground.wrapT = THREE.RepeatWrapping
-
     const [ colorMap, displacementMap, normalMap, roughnessMap, aoMap ] = useTexture(
         [
-            './assets/textures/ground/basecolor.jpg',
-            './assets/textures/ground/height.png',
-            './assets/textures/ground/normal.jpg',
-            './assets/textures/ground/roughness.jpg',
-            './assets/textures/ground/occlusion.jpg',
+            './assets/textures/grass/basecolor.jpg',
+            './assets/textures/grass/height.png',
+            './assets/textures/grass/normal.jpg',
+            './assets/textures/grass/roughness.jpg',
+            './assets/textures/grass/occlusion.jpg',
         ]
     )
 
-    const repeatMap = [ 20, 20 ]
+    const repeatMap = [ 32, 32 ]
 
     colorMap.wrapS = colorMap.wrapT = THREE.RepeatWrapping
     colorMap.repeat.set( repeatMap[0], repeatMap[1] )
@@ -260,15 +257,15 @@ const Beach = (props) =>
 /**
  *  Ground base
  */
-const Lava = (props) => 
+const Mars = (props) => 
 {
     const [ colorMap, displacementMap, normalMap, roughnessMap, aoMap ] = useTexture(
         [
-            './assets/textures/lava/basecolor.jpg',
-            './assets/textures/lava/height.png',
-            './assets/textures/lava/normal.jpg',
-            './assets/textures/lava/roughness.jpg',
-            './assets/textures/lava/occlusion.jpg',
+            './assets/textures/mud/basecolor.jpg',
+            './assets/textures/mud/height.png',
+            './assets/textures/mud/normal.jpg',
+            './assets/textures/mud/roughness.jpg',
+            './assets/textures/mud/occlusion.jpg',
         ]
     )
 
@@ -322,8 +319,11 @@ export default function Platforms()
             <Beach
                 position={ [ 0, 0, 0 ] }
             />
-            <Lava
+            <Mars
                 position={ [ - 600, 0, - 150 ] }
+            />
+            <Rocks
+                position={ [ 600, 0, 150 ] }
             />
             {/* <BeachIsland 
                 position={ [ 0, 0, 0 ] } 
@@ -343,7 +343,7 @@ export default function Platforms()
                 color={ "white" }
                 scale={ 1 }
             /> */}
-            <BeachIsland 
+            {/* <BeachIsland 
                 position={ [ 600, 0, 150 ] } 
                 boxSize={ [ 250, 4, 250 ] }
                 colBox={ [ 125, 2, 125 ] }
@@ -351,7 +351,7 @@ export default function Platforms()
                 map={ [ 64, 64 ] }
                 color={ "green" }
                 scale={ 1 }
-            />
+            /> */}
         </>
     )
 }
@@ -369,8 +369,8 @@ useTexture.preload('./assets/textures/beach/roughness.jpg')
 useTexture.preload('./assets/textures/beach/occlusion.jpg')
 useTexture.preload('./assets/textures/beach/normal.jpg')
 // Lava
-useTexture.preload('./assets/textures/lava/basecolor.jpg')
-useTexture.preload('./assets/textures/lava/height.png')
-useTexture.preload('./assets/textures/lava/roughness.jpg')
-useTexture.preload('./assets/textures/lava/occlusion.jpg')
-useTexture.preload('./assets/textures/lava/normal.jpg')
+useTexture.preload('./assets/textures/mud/basecolor.jpg')
+useTexture.preload('./assets/textures/mud/height.png')
+useTexture.preload('./assets/textures/mud/roughness.jpg')
+useTexture.preload('./assets/textures/mud/occlusion.jpg')
+useTexture.preload('./assets/textures/mud/normal.jpg')

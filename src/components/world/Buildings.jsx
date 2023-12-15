@@ -275,20 +275,25 @@ export default function Buildings()
             <group>
                 <PirateBuilding1 position={ [ - 25, 5, 109 ] } rotation-y={ Math.PI * 1 } />
                 <PirateBuilding2 position={ [ 5, 5, 100 ] } rotation-y={ Math.PI * 1.2 } />
+                
                 <PirateBuilding3 position={ [ 45, 5, - 95 ] } rotation-y={ Math.PI * 0 } />
+                <PirateBuilding2 position={ [ 88, 5, - 60 ] } rotation-y={ Math.PI * 1.5 } />
+
+                <PirateBuilding3 position={ [ - 90, 5, 58 ] } rotation-y={ Math.PI * 1.5 } />
+
             </group>
             {/* Grass island */}
-            <group>
+            {/* <group>
                 <LargeBuilding1 position={ [ 530, 10.5, 140 ] } rotation-y={ Math.PI * 1.5 } />
                 <LargeBuilding2 position={ [ 580, 12, 140 ] } rotation-y={ Math.PI * 0.5 } />
                 <LargeBuilding3 position={ [ 550, 12, 100 ] } rotation-y={ Math.PI * 1 } />
-            </group>
+            </group> */}
         </>
     )
 }
 
-useGLTF.preload("./assets/models/city/large-building-1.glb")
-useGLTF.preload("./assets/models/city/large-building-2.glb")
-useGLTF.preload("./assets/models/city/large-building-3.glb")
+// useGLTF.preload("./assets/models/city/large-building-1.glb")
+// useGLTF.preload("./assets/models/city/large-building-2.glb")
+// useGLTF.preload("./assets/models/city/large-building-3.glb")
 useGLTF.preload("./assets/models/world/buildings/house-1.glb")
 useGLTF.preload("./assets/models/world/buildings/house-2.glb")

@@ -6,12 +6,12 @@ import Trees from "./world/Trees"
 import Collectables from "./Collectables"
 import Teleports from "./world/Teleports"
 import Platforms from "./world/Platforms"
-
-import { Twitter } from "./world/models/TwitterLogo"
-import { XLogo } from "./world/models/XLogo"
-import { Elon } from "./world/models/Elon"
 import Texts from "./world/Texts"
 import Buildings from "./world/Buildings"
+
+// import { Twitter } from "./world/models/TwitterLogo"
+// import { XLogo } from "./world/models/XLogo"
+import { Elon } from "./world/models/Elon"
 import { Trump } from "./world/models/Trump"
 import { Putin } from "./world/models/Putin"
 
@@ -36,19 +36,19 @@ export default function World(props)
             <Teleports char={ char } />
             <Collectables char={ char } />
 
-            <Twitter position={ [ - 92, 12.5, 27 ] } rotation-y={ Math.PI * 0 } />
-            <XLogo position={ [ 46, 13, - 5 ] } rotation-y={ Math.PI * 1 } />
+            {/* <Twitter position={ [ - 92, 12.5, 27 ] } rotation-y={ Math.PI * 0 } />
+            <XLogo position={ [ 46, 13, - 5 ] } rotation-y={ Math.PI * 1 } /> */}
             
             <Elon 
-                rotation-y={ Math.PI * 0.5 } 
-                position={ [ - 102, 12.5, 20 ] } 
-                pos={ [  - 102, 12.5, 20 ] } 
+                rotation-y={ Math.PI * 1 } 
+                position={ [ 60, 12, 105 ] } 
+                pos={ [  60, 5, 105 ] } 
                 char={ char } 
             />
             <Trump 
-                rotation-y={ Math.PI * 0.5 } 
-                position={ [ - 99, 12.5, 7.8 ] } 
-                pos={ [ - 99, 12.5, 7.8 ] } 
+                rotation-y={ Math.PI * 1 } 
+                position={ [ - 33, 12.5, - 101 ] } 
+                pos={ [ - 33, 12.5, - 101 ] } 
                 char={ char } 
             />
             <Putin 

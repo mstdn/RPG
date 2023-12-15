@@ -138,7 +138,7 @@ export default function Collectables(props)
                 />
                 <Coin 
                     coin={ coin5 } 
-                    position={ [ 97, 3.5, 90 ] }
+                    position={ [ 96, 3.5, 94 ] }
                     dis={ DIST }
                     char={ char }
                     col={ false }
@@ -176,18 +176,18 @@ export default function Collectables(props)
                     col={ false }
                     scale={ SCALE }
                 />
-            </group>
-
-            {/* Grass island */}
-            <group>
                 <Coin 
                     coin={ coin10 } 
-                    position={ [ 557, 3.5, 191 ] }
+                    position={ [ 104, 3.5, 37 ] }
                     dis={ DIST }
                     char={ char }
                     col={ false }
                     scale={ SCALE }
                 />
+            </group>
+
+            {/* Grass island */}
+            <group>
                 <Coin 
                     coin={ coin11 } 
                     position={ [ 568, 3.5, 101 ] }

@@ -71,6 +71,7 @@ export default function Texts(props)
     const { char } = props
     return(
         <>
+            {/* Welcome text */}
             <GameText 
                 text="You have landed"
                 font="./assets/fonts/rpg.ttf"
@@ -84,6 +85,45 @@ export default function Texts(props)
                 letterSpacing={ 0.05 }
                 textAlign="center"
                 hasAudio={ true }
+                sound={ './assets/audio/welcome.wav' }
+                repeat={ false }
+                dis={ 10 }
+                char={ char }
+            />
+
+            {/* Mars teleport */}
+            <GameText 
+                text="Teleport to Mars"
+                font="./assets/fonts/rpg.ttf"
+                position={ [ - 99.6, 6.8, - 106 ] }
+                pos={ [ - 99.6, 6.8, - 106 ] }
+                rotationY={ Math.PI * 0.1 }
+                color={ "#ffd7b8" }
+                size={ 1.5 }
+                width={ 6 }
+                lineHeight={ 0.9 }
+                letterSpacing={ 0.05 }
+                textAlign="center"
+                hasAudio={ false }
+                sound={ './assets/audio/welcome.wav' }
+                repeat={ false }
+                dis={ 10 }
+                char={ char }
+            />
+            {/* Forest teleport */}
+            <GameText 
+                text="Teleport to Forest"
+                font="./assets/fonts/rpg.ttf"
+                position={ [ 88, 6.8, 101.9 ] }
+                pos={ [ 88, 6.8, 102 ] }
+                rotationY={ Math.PI * 0.95 }
+                color={ "#ffd7b8" }
+                size={ 1.4 }
+                width={ 6 }
+                lineHeight={ 1.1 }
+                letterSpacing={ 0.05 }
+                textAlign="center"
+                hasAudio={ false }
                 sound={ './assets/audio/welcome.wav' }
                 repeat={ false }
                 dis={ 10 }
