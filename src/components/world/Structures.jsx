@@ -374,10 +374,10 @@ export default function Structures()
     
     return(
         <>
-            {/* <Crate ref={ crate } position={ [ - 20, 6, 22 ] } rotation-y={ Math.PI * 0.3 } scale={ 1 } /> */}
-            {/* <Crate ref={ crate1 } position={ [ - 45, 8, 17 ] } scale={ 1.4 } rotation-y={ Math.PI * 0.2 } /> */}
-            {/* <Crate ref={ crate2 } position={ [ 48, 12.5, 55 ] } scale={ 1.2 } rotation-y={ Math.PI * 0.7 } /> */}
-            {/* <Crate ref={ crate3 } position={ [ - 10, 14, 15 ] } scale={ 1 } /> */}
+            <Crate ref={ crate } position={ [ 520, 6, 176 ] } rotation-y={ Math.PI * 0.3 } scale={ 1 } />
+            <Crate ref={ crate1 } position={ [ 565, 8, 120 ] } scale={ 1.4 } rotation-y={ Math.PI * 0.2 } />
+            <Crate ref={ crate2 } position={ [ 634, 12.5, 121 ] } scale={ 1.2 } rotation-y={ Math.PI * 0.7 } />
+            <Crate ref={ crate3 } position={ [ 670, 14, 160 ] } scale={ 1 } />
             
             <Barrel ref={ barrel } position={ [ 510, 11, 213 ] } scale={ 1.5 } />
             <Barrel ref={ barrel1 } position={ [ 607, 7.9, 198 ] } scale={ 1.2 } />

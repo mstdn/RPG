@@ -10,20 +10,76 @@ const LIMIT = 200
 
 const Character = forwardRef((props, character) =>
 {
-    const { nodes, materials, animations } = useGLTF("./assets/models/wizard.glb")
+    const { nodes, materials, animations } = useGLTF("./assets/models/demon.glb")
     const { actions } = useAnimations(animations, character)
 
     return (
-        <group scale={ 0.8 } ref={character} {...props} dispose={null}>
+        <group scale={ 0.02 } ref={character} {...props} dispose={null}>
+            <primitive object={nodes.mixamorigHips} />
             <skinnedMesh
                 castShadow
                 receiveShadow
-                name="mesh_char_19"
-                geometry={nodes.mesh_char_19.geometry}
-                material={materials._019_Wizzir}
-                skeleton={nodes.mesh_char_19.skeleton}
+                name="LP_Eyes_ring"
+                geometry={nodes.LP_Eyes_ring.geometry}
+                material={materials.Demon_MAT}
+                skeleton={nodes.LP_Eyes_ring.skeleton}
             />
-            <primitive object={nodes.mixamorigHips} />
+            <skinnedMesh
+                castShadow
+                receiveShadow
+                name="LP_shoulder2"
+                geometry={nodes.LP_shoulder2.geometry}
+                material={materials.Demon_MAT}
+                skeleton={nodes.LP_shoulder2.skeleton}
+            />
+            <skinnedMesh
+                castShadow
+                receiveShadow
+                name="LP_shoulder1"
+                geometry={nodes.LP_shoulder1.geometry}
+                material={materials.Demon_MAT}
+                skeleton={nodes.LP_shoulder1.skeleton}
+            />
+            <skinnedMesh
+                castShadow
+                receiveShadow
+                name="LP_lower_armor_horns"
+                geometry={nodes.LP_lower_armor_horns.geometry}
+                material={materials.Demon_MAT}
+                skeleton={nodes.LP_lower_armor_horns.skeleton}
+            />
+            <skinnedMesh
+                castShadow
+                receiveShadow
+                name="LP_shoulder_rings"
+                geometry={nodes.LP_shoulder_rings.geometry}
+                material={materials.Demon_MAT}
+                skeleton={nodes.LP_shoulder_rings.skeleton}
+            />
+            <skinnedMesh
+                castShadow
+                receiveShadow
+                name="LP_Lower_shoes"
+                geometry={nodes.LP_Lower_shoes.geometry}
+                material={materials.Demon_MAT}
+                skeleton={nodes.LP_Lower_shoes.skeleton}
+            />
+            <skinnedMesh
+                castShadow
+                receiveShadow
+                name="LP_Upper_body"
+                geometry={nodes.LP_Upper_body.geometry}
+                material={materials.Demon_MAT}
+                skeleton={nodes.LP_Upper_body.skeleton}
+            />
+            <skinnedMesh
+                castShadow
+                receiveShadow
+                name="LP_upper_cloth"
+                geometry={nodes.LP_upper_cloth.geometry}
+                material={materials.Demon_MAT}
+                skeleton={nodes.LP_upper_cloth.skeleton}
+            />
         </group>
         // <group scale={ 0.02 } ref={character} {...props} dispose={null}>
         //     <group name="MaleBruteA_Meshes">
@@ -128,7 +184,8 @@ const Player = forwardRef((props, ref) =>
     const origin = useRef()
     const target = useRef()
 
-    const Shoot = () =>
+    // First attack
+    const Attack1 = () =>
     {
         // Get origin position
         const originBlock = new THREE.Vector3(0, 0, 0)
@@ -171,6 +228,64 @@ const Player = forwardRef((props, ref) =>
 
     }
 
+    // Second attack, smash up
+    const Attack2 = () =>
+    {
+        // Attack vars
+        let canAttack = true
+        let hasHit = false
+        let attackTimer = 0
+
+        // Get origin position
+        const originBlock = new THREE.Vector3(0, 0, 0)
+        origin.current.getWorldPosition(originBlock)
+
+        // Get target position
+        const targetBlock = new THREE.Vector3(0, 0, 0)
+        target.current.getWorldPosition(targetBlock)
+
+        // Create rapier ray
+        const ray = new rapier.Ray(originBlock, targetBlock)
+        let maxToi = 50.0
+        let solid = true
+        
+        // Cast rapier ray
+        const hit = world.castRay(ray, maxToi, solid)
+
+        if(canAttack)
+        {
+            playAttackSound()
+            // Set attack temp to false
+            canAttack = false
+
+            if(hit && !hasHit)
+            {
+                hasHit = true 
+                setTimeout(() =>
+                {
+                    playImpactSound()
+                    hit.collider.parent().applyImpulse( 
+                        { 
+                            x: - (originBlock.x - targetBlock.x) * 100,
+                            y: 125, 
+                            z: - (originBlock.z - targetBlock.z) * 100,
+                        } )
+                        hit.collider.parent().applyTorqueImpulse( { x: 0, y: 25, z: 0 } )
+                        canAttack = true
+                        hasHit = false
+                    }, 500)
+            }
+            else 
+            {
+                // Timeout after attack
+                setTimeout(() =>
+                {
+                    canAttack = true
+                }, 500)
+            } 
+        }
+    }
+
     // useEffect(() =>
     // {
     //     const unsubscribeShoot =  subscribeKeys(
@@ -200,15 +315,19 @@ const Player = forwardRef((props, ref) =>
         if(ref.current)
         {
             const charPosition = ref.current.translation()
-            console.log(charPosition)
+            // console.log(charPosition)
 
             const { action4, action2, action3 } = getKeys()
 
-            if(action4 || action2 || action3 || getJoystickValues().button2Pressed)
+            if(action4 || getJoystickValues().button2Pressed)
             {
-                Shoot()
+                Attack1()
             }
 
+            if( action2 || action3)
+            {
+                Attack2()
+            }
             // Apply forces
             // const impulse = { x: 0, y: 0, z: 0 }
             // const torque = { x: 0, y: 0, z: 0 }
@@ -248,7 +367,7 @@ const Player = forwardRef((props, ref) =>
         }
     })
     
-    const characterURL = "./assets/models/wizard.glb"
+    const characterURL = "./assets/models/demon.glb"
     const animationSet = 
     {
         idle: "Idle",
@@ -271,12 +390,12 @@ const Player = forwardRef((props, ref) =>
                 ref={ ref }
                 capsuleRadius={ 0.3 }
                 capsuleHalfHeight={ 0.5 }
-                camInitDis={ - 8 }
+                camInitDis={ - 10 }
                 camMaxDis={ - 30 }
                 camMinDis={ - 0.1 }
                 animated={ true }
                 position={ [ 0, 20, 0 ] }
-                maxVelLimit={ 3 }
+                maxVelLimit={ 4 }
                 sprintMult={ 3 }
                 jumpVel={ 6 }
                 autoBalanceDampingOnY={ 0.01 }
@@ -317,4 +436,4 @@ const Player = forwardRef((props, ref) =>
 
 export default Player
 
-useGLTF.preload("./assets/models/wizard.glb")
+useGLTF.preload("./assets/models/demon.glb")

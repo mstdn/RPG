@@ -14,6 +14,7 @@ import Buildings from "./world/Buildings"
 import { Elon } from "./world/models/Elon"
 import { Trump } from "./world/models/Trump"
 import { Putin } from "./world/models/Putin"
+import Forest from "./world/Forest"
 
 
 export default function World(props)
@@ -31,7 +32,7 @@ export default function World(props)
             <Structures />
         
             <Trees />
-
+            <Forest />
 
             <Teleports char={ char } />
             <Collectables char={ char } />

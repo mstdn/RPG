@@ -361,4 +361,4 @@ export default function Collectables(props)
 
 
 
-useGLTF.preload("./assets/models/fly.glb")
+useGLTF.preload("./assets/models/coin.glb")

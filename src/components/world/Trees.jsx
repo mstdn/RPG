@@ -229,7 +229,7 @@ export default function Trees()
             </group>
             
             {/* Green island */}
-            <group>
+            {/* <group>
                 <Tree1 scale={ 2 } position={ [ 560, 2, 193 ] } rotation-y={ Math.PI * 1.2 } />
                 <Tree2 scale={ 2 } position={ [ 582, 2, 258 ] } rotation-y={ Math.PI * 1.2 } />
                 <Tree2 scale={ 2 } position={ [ 686, 2, 200 ] } rotation-y={ Math.PI * 1.2 } />
@@ -239,7 +239,7 @@ export default function Trees()
                 <Tree4 scale={ 2.5 } position={ [ 625, 2, 158 ] } rotation-y={ Math.PI * 1.2 } />
                 <Tree1 scale={ 2 } position={ [ 693, 2, 42 ] } rotation-y={ Math.PI * 1.2 } />
                 <Tree1 scale={ 2 } position={ [ 524, 2, 114 ] } rotation-y={ Math.PI * 1.2 } />
-            </group>
+            </group> */}
         </>
     )
 }
