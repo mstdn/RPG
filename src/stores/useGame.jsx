@@ -1,6 +1,12 @@
 import { create } from 'zustand'
 import { subscribeWithSelector } from 'zustand/middleware'
-import { totalCoinAmount } from '../components/Collectables'
+// import { totalCoinAmount } from '../components/world/Coins'
+import { coinPositions } from '../components/world/positions/CoinPositions'
+
+const totalCoins = () =>
+{
+    return coinPositions.length
+}
 
 
 export default create(subscribeWithSelector((set) => 
@@ -9,7 +15,8 @@ export default create(subscribeWithSelector((set) =>
         coins: 0,
         increaseCoins: () => set((state) => ({ coins: state.coins + 1 })),
         removeAllCoins: () => set({ coins: 0 }),
-        totalCoins: totalCoinAmount(),
-        // setTotalCoins: () => set({ totalCoins: totalCoinAmount() }),
+        // totalCoins: totalCoinAmount(),
+        totalCoins: totalCoins(),
+        
     }
 }))

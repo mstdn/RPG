@@ -3,18 +3,15 @@ import Structures from "./world/Structures"
 import Ocean from "./world/Ocean"
 import Environment from "./world/Environment"
 import Trees from "./world/Trees"
-import Collectables from "./Collectables"
 import Teleports from "./world/Teleports"
 import Platforms from "./world/Platforms"
 import Texts from "./world/Texts"
 import Buildings from "./world/Buildings"
-
-// import { Twitter } from "./world/models/TwitterLogo"
-// import { XLogo } from "./world/models/XLogo"
 import { Elon } from "./world/models/Elon"
 import { Trump } from "./world/models/Trump"
 import { Putin } from "./world/models/Putin"
 import Forest from "./world/Forest"
+import Coins from "./world/Coins"
 
 
 export default function World(props)
@@ -26,7 +23,6 @@ export default function World(props)
         <group>
             <Platforms />
             <Buildings />
-            {/* <Platforms /> */}
 
             <Texts char={ char } />
             <Structures />
@@ -35,11 +31,8 @@ export default function World(props)
             <Forest />
 
             <Teleports char={ char } />
-            <Collectables char={ char } />
+            <Coins char={ char } />
 
-            {/* <Twitter position={ [ - 92, 12.5, 27 ] } rotation-y={ Math.PI * 0 } />
-            <XLogo position={ [ 46, 13, - 5 ] } rotation-y={ Math.PI * 1 } /> */}
-            
             <Elon 
                 rotation-y={ Math.PI * 1 } 
                 position={ [ 60, 12, 105 ] } 

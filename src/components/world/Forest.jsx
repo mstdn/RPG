@@ -1,46 +1,14 @@
 import { useGLTF } from "@react-three/drei"
 import { CuboidCollider, RigidBody } from "@react-three/rapier"
 import { useRef } from "react"
+import { treePositions } from "./positions/TreePositions"
 
 const Trees = () =>
 {
-    const treePositions = [
-        [ 493, 2, 250 ],
-        [ 505, 2, 240 ],
-        [ 505, 2, 251 ],
-        [ 499, 2, 264 ],
-        [ 493, 2, 259 ],
-        [ 485, 2, 241 ],
-        [ 489, 2, 237 ],
-        [ 498, 2, 226 ],
-        [ 506, 2, 224 ],
-        [ 518, 2, 233 ], // 10
-        [ 504, 2, 272 ],
-        [ 505, 2, 265 ],
-        [ 510, 2, 269 ],
-        [ 478, 2, 243 ],
-        [ 477, 2, 232 ],
-        [ 481, 2, 230 ],
-        [ 511, 2, 216 ],
-        [ 513, 2, 211 ],
-        [ 522, 2, 203 ],
-        [ 526, 2, 215 ], // 20
-        [ 550, 2, 238 ],
-        [ 558, 2, 251 ],
-        [ 532, 2, 271 ],
-        [ 522, 2, 261 ],
-        [ 477, 2, 232 ],
-        [ 481, 2, 230 ],
-        [ 511, 2, 216 ],
-        [ 513, 2, 211 ],
-        [ 522, 2, 203 ],
-        [ 526, 2, 215 ], // 30
-        
-    ]
-
+    const treePositionsCount = treePositions.length
     const trunk = useRef([])
     const { nodes, materials } = useGLTF("./assets/models/world/trees/dead-tree.glb")
-    const tree = [...Array(30)].map((value, index) =>
+    const tree = [...Array(treePositionsCount)].map((value, index) =>
     <RigidBody
         type="fixed"
         colliders={ false }

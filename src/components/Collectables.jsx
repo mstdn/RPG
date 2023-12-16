@@ -1,6 +1,6 @@
 import { useGLTF } from "@react-three/drei"
 import { useFrame } from "@react-three/fiber"
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import useGame from '../stores/useGame.jsx'
 import { Vector3 } from "three"
 import useSound from "use-sound"
@@ -10,10 +10,19 @@ const SCALE = 1.5
 
 const Coin = (props) => 
 {
-    const [ playCoinSound ] = useSound('./assets/audio/rpg/coin.wav')
     const { coin, char, dis } = props
+    // const [ playCoinSound ] = useSound('./assets/audio/rpg/coin.wav', { volume: 0.5, interrupt: true })
     const increaseCoins = useGame(state => state.increaseCoins)
     const { nodes, materials } = useGLTF("./assets/models/coin.glb")
+    
+    const audioRef = useRef(null)
+
+    useEffect(() =>
+    {
+        audioRef.current = new Audio('./assets/audio/rpg/coin.wav')
+        audioRef.current.preload = "auto"
+        audioRef.current.load()
+    }, [])
 
     useFrame((state, delta) =>
     {
@@ -32,7 +41,8 @@ const Coin = (props) =>
             {
                 coin.current.col = true
                 increaseCoins()
-                playCoinSound()
+                // playCoinSound()
+                audioRef.current.play()
                 coin.current.visible = false
             }
         }
