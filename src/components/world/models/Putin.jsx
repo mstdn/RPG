@@ -10,7 +10,7 @@ export function Putin(props)
     const { char, pos } = props
     const group = useRef()
     const NPC = useRef()
-    const [ playNPCSound ] = useSound('./assets/audio/twerk.wav', { volume: 1, interrupt: true })
+    // const [ playNPCSound ] = useSound('./assets/audio/twerk.wav', { volume: 1, interrupt: true })
     const { nodes, materials, animations } = useGLTF("./assets/models/world/npcs/putin.glb")
     const { actions } = useAnimations(animations, group)
     let play = true
@@ -26,24 +26,24 @@ export function Putin(props)
     {
         actions["Animation"].play()
 
-        if(char.current)
-        {
-            const NPCPosition = NPC.current.translation()
-            const NPCVector = new Vector3(NPCPosition.x, NPCPosition.y, NPCPosition.z)
-            const playerPosition = char.current.translation()
-            const position = new Vector3(playerPosition.x, playerPosition.y, playerPosition.z)
-            const distance = NPCVector.distanceTo(position)               
+        // if(char.current)
+        // {
+        //     const NPCPosition = NPC.current.translation()
+        //     const NPCVector = new Vector3(NPCPosition.x, NPCPosition.y, NPCPosition.z)
+        //     const playerPosition = char.current.translation()
+        //     const position = new Vector3(playerPosition.x, playerPosition.y, playerPosition.z)
+        //     const distance = NPCVector.distanceTo(position)               
             
-            if( distance < 5 && play )
-            {
-                playNPCSound()
-                play = false
-            } 
-            else if( distance > 5 && !play )
-            {
-                play = true
-            }
-        }
+        //     if( distance < 5 && play )
+        //     {
+        //         playNPCSound()
+        //         play = false
+        //     } 
+        //     else if( distance > 5 && !play )
+        //     {
+        //         play = true
+        //     }
+        // }
 
         
     })

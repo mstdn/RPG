@@ -239,7 +239,7 @@ const Player = forwardRef((props, ref) =>
         if(ref.current)
         {
             const charPosition = ref.current.translation()
-            console.log(charPosition)
+            // console.log(charPosition)
 
             const { action4, action2, action3 } = getKeys()
 
