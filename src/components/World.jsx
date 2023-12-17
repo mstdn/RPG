@@ -12,6 +12,9 @@ import { Trump } from "./world/models/Trump"
 import { Putin } from "./world/models/Putin"
 import Forest from "./world/Forest"
 import Coins from "./world/Coins"
+import Barrels from "./world/Barrels"
+import Crates from "./world/Crates"
+import Skulls from "./world/Skulls"
 
 
 export default function World(props)
@@ -26,7 +29,10 @@ export default function World(props)
 
             <Texts char={ char } />
             <Structures />
-        
+            <Barrels />
+            <Crates />
+            <Skulls />
+
             <Trees />
             <Forest />
 

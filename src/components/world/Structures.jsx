@@ -3,115 +3,87 @@ import { useGLTF } from "@react-three/drei"
 import { RigidBody, CuboidCollider } from "@react-three/rapier"
 
 
-const Crate = forwardRef((props, ref) =>
-{
-    const { nodes, materials } = useGLTF("./assets/models/world/crate.glb")
-    return (
-        <RigidBody 
-            // colliders="hull"
-            colliders={ false }
-            // gravityScale={ 1 }
-            // friction={ 1 }
-            restitution={ 0.5 }
-            ref={ ref }
-            canSleep={ false }
-            {...props}
-        >   
-            <group  dispose={null}>
-                <group scale={ 150 }>
-                    <mesh
-                        castShadow
-                        receiveShadow
-                        geometry={nodes.Crate_1.geometry}
-                        material={materials.Wood}
-                    />
-                    <mesh
-                        castShadow
-                        receiveShadow
-                        geometry={nodes.Crate_2.geometry}
-                        material={materials.Wood_Light}
-                    />
+// const Crate = forwardRef((props, ref) =>
+// {
+//     const { nodes, materials } = useGLTF("./assets/models/world/crate.glb")
+//     return (
+//         <RigidBody 
+//             // colliders="hull"
+//             colliders={ false }
+//             // gravityScale={ 1 }
+//             // friction={ 1 }
+//             restitution={ 0.5 }
+//             ref={ ref }
+//             canSleep={ false }
+//             {...props}
+//         >   
+//             <group  dispose={null}>
+//                 <group scale={ 150 }>
+//                     <mesh
+//                         castShadow
+//                         receiveShadow
+//                         geometry={nodes.Crate_1.geometry}
+//                         material={materials.Wood}
+//                     />
+//                     <mesh
+//                         castShadow
+//                         receiveShadow
+//                         geometry={nodes.Crate_2.geometry}
+//                         material={materials.Wood_Light}
+//                     />
 
-                </group>
-                <CuboidCollider 
-                    args={ [ 1.5, 1.5, 1.5 ] }
-                    position={ [ 0, 0, 1.5 ] } 
-                />
-            </group>
-        </RigidBody>
-        )
-})
+//                 </group>
+//                 <CuboidCollider 
+//                     args={ [ 1.5, 1.5, 1.5 ] }
+//                     position={ [ 0, 0, 1.5 ] } 
+//                 />
+//             </group>
+//         </RigidBody>
+//         )
+// })
 
-const Barrel = forwardRef((props, ref) =>
-{
-    const { nodes, materials } = useGLTF("./assets/models/world/barrel.glb")
-    return (
-        <RigidBody 
-            colliders="hull"
-            // colliders={ false }
-            gravityScale={ 1.5 }
-            // friction={ 1 }
-            restitution={ 0.5 }
-            ref={ ref }
-            canSleep={ false }
-        >   
-            <group {...props} dispose={null}>
-                <group rotation={[-Math.PI / 2, 0, 0]} scale={ 100 }>
-                    <mesh
-                        castShadow
-                        receiveShadow
-                        geometry={nodes.ExplodingBarrel_1.geometry}
-                        material={materials.Grey}
-                    />
-                    <mesh
-                        castShadow
-                        receiveShadow
-                        geometry={nodes.ExplodingBarrel_2.geometry}
-                        material={materials.Red}
-                    />
-                    <mesh
-                        castShadow
-                        receiveShadow
-                        geometry={nodes.ExplodingBarrel_3.geometry}
-                        material={materials.White}
-                    />
-                </group>
-            </group>
-        </RigidBody>
-        )
-})
 
-const PirateBarrel = forwardRef((props, ref) =>
-{
-    const { nodes, materials } = useGLTF("./assets/models/world/pirate/barrel.glb")
-    return (
-        <RigidBody 
-            // colliders="hull"
-            colliders={ false }
-            gravityScale={ 1.5 }
-            // friction={ 1 }
-            // restitution={ 0.5 }
-            ref={ ref }
-            canSleep={ false }
-            {...props}
-        >   
-            <group dispose={null}>
-                <group scale={ 300 }>
-                    <mesh
-                        castShadow
-                        receiveShadow
-                        geometry={nodes.Prop_Barrel.geometry}
-                        material={materials.Atlas}
-                    />
-                </group>
-            </group>
-            <CuboidCollider 
-                args={ [ 1, 1, 1 ] } 
-                position={ [ 0, 1, 0 ] }
-            />
-        </RigidBody>
-        )
-})
+
+// const Barrel = forwardRef((props, ref) =>
+// {
+//     const { nodes, materials } = useGLTF("./assets/models/world/barrel.glb")
+//     return (
+//         <RigidBody 
+//             colliders="hull"
+//             // colliders={ false }
+//             gravityScale={ 1.5 }
+//             // friction={ 1 }
+//             restitution={ 0.5 }
+//             ref={ ref }
+//             canSleep={ false }
+//         >   
+//             <group {...props} dispose={null}>
+//                 <group rotation={[-Math.PI / 2, 0, 0]} scale={ 100 }>
+//                     <mesh
+//                         castShadow
+//                         receiveShadow
+//                         geometry={nodes.ExplodingBarrel_1.geometry}
+//                         material={materials.Grey}
+//                     />
+//                     <mesh
+//                         castShadow
+//                         receiveShadow
+//                         geometry={nodes.ExplodingBarrel_2.geometry}
+//                         material={materials.Red}
+//                     />
+//                     <mesh
+//                         castShadow
+//                         receiveShadow
+//                         geometry={nodes.ExplodingBarrel_3.geometry}
+//                         material={materials.White}
+//                     />
+//                 </group>
+//             </group>
+//         </RigidBody>
+//         )
+// })
+
+
 
 const PirateChestOpen = forwardRef((props, ref) =>
 {
@@ -334,40 +306,16 @@ const Sign = (props) =>
 
 export default function Structures()
 {
-    // Crates
-    const crate = useRef()
-    const crate1 = useRef()
-    const crate2 = useRef()
-    const crate3 = useRef()
-    
-    // Normal barrels
-    const barrel = useRef()
-    const barrel1 = useRef()
-    
     // Rover
     const rover = useRef()
 
-    // Pirate barrels
-    const pirateBarrel = useRef()
-    const pirateBarrel2 = useRef()
-    const pirateBarrel3 = useRef()
-    const pirateBarrel4 = useRef()
-    const pirateBarrel5 = useRef()
-    const pirateBarrel6 = useRef()
-
     const pirateChestOpen = useRef()
     const pirateChestOpen1 = useRef()
-    
-    const pirateSkull = useRef()
-    const pirateSkull2 = useRef()
-    const pirateSkull3 = useRef()
 
     const axe = useRef()
     
     return(
-        <>
-            
-            
+        <>    
             <Rover ref={ rover } position={ [ - 540, 3.1, - 200 ] } scale={ 1.2 } />
 
             <group>
@@ -376,42 +324,19 @@ export default function Structures()
                 <Sign position={ [ 88, 1.8, 102 ] } rotation-y={ Math.PI * 0.95 } />
             </group>
             <group>
-                <PirateBarrel ref={ pirateBarrel } position={ [ 56, 7.9, - 76 ] } rotation-y={ Math.PI * 1 } />
-                <PirateBarrel ref={ pirateBarrel2 } position={ [ 77, 7.9, - 49 ] } scale={ 1.5 } rotation-y={ Math.PI * 1 } />
-                <PirateBarrel ref={ pirateBarrel3 } position={ [ 0, 7.9, 50 ] } scale={ 1.5 } rotation-y={ Math.PI * 1 } />
-                <PirateBarrel ref={ pirateBarrel4 } position={ [ 13, 7.9, 8.6 ] } scale={ 1.2 } rotation-y={ Math.PI * 1 } />
-                <PirateBarrel ref={ pirateBarrel5 } position={ [ - 3, 7.9, 48 ] } scale={ 1.2 } rotation-y={ Math.PI * 1 } />
-                <PirateBarrel ref={ pirateBarrel6 } position={ [ - 87, 7.9, - 7.4 ] } scale={ 1.2 } rotation-y={ Math.PI * 1 } />
-                
                 <PirateChestOpen ref={ pirateChestOpen } position={ [ - 70, 7.9, 90 ] } rotation-y={ - Math.PI * 1.4 } />
                 <PirateChestOpen ref={ pirateChestOpen1 } position={ [ 104, 7.9, 37 ] } rotation-y={ Math.PI * 1.5 } />
-                
-                <PirateSkull ref={ pirateSkull } position={ [ - 31, 7.9, - 69 ] } rotation-y={ Math.PI * 0.3 } />
-                <PirateSkull ref={ pirateSkull2 } position={ [ 60, 8, 82 ] } rotation-y={ Math.PI * 1 } />
-                <PirateSkull ref={ pirateSkull3 } position={ [ - 13, 8, 10 ] } rotation-y={ Math.PI * 0.7 } />
             </group>
 
             {/* Forest */}
             <group>
-                <Crate ref={ crate } position={ [ 597, 6, 144 ] } rotation-y={ Math.PI * 0.3 } scale={ 1 } />
-                <Crate ref={ crate1 } position={ [ 565, 8, 120 ] } scale={ 1.4 } rotation-y={ Math.PI * 0.2 } />
-                <Crate ref={ crate2 } position={ [ 634, 12.5, 121 ] } scale={ 1.2 } rotation-y={ Math.PI * 0.7 } />
-                <Crate ref={ crate3 } position={ [ 670, 14, 160 ] } scale={ 1 } />
-                
-                <Barrel ref={ barrel } position={ [ 510, 11, 213 ] } scale={ 1.5 } />
-                <Barrel ref={ barrel1 } position={ [ 607, 7.9, 198 ] } scale={ 1.2 } />
-
                 <Axe ref={ axe } position={ [ 590, 11, 134 ] } />
             </group>
         </>
     )
 }
 
-useGLTF.preload("./assets/models/world/crate.glb")
-useGLTF.preload("./assets/models/world/barrel.glb")
+
 useGLTF.preload("./assets/models/world/rover.glb")
 useGLTF.preload("./assets/models/world/wooden-sign.glb")
-
-useGLTF.preload("./assets/models/world/pirate/barrel.glb")
 useGLTF.preload("./assets/models/world/pirate/chest-gold.glb")
-useGLTF.preload("./assets/models/world/pirate/skull.glb")

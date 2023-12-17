@@ -105,7 +105,6 @@ export default function Texts(props)
                 letterSpacing={ 0.05 }
                 textAlign="center"
                 hasAudio={ false }
-                sound={ './assets/audio/welcome.wav' }
                 repeat={ false }
                 dis={ 10 }
                 char={ char }
@@ -124,7 +123,6 @@ export default function Texts(props)
                 letterSpacing={ 0.05 }
                 textAlign="center"
                 hasAudio={ false }
-                sound={ './assets/audio/welcome.wav' }
                 repeat={ false }
                 dis={ 10 }
                 char={ char }

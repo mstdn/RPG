@@ -8,7 +8,7 @@ const Teleport = (props) =>
 {
     const { char, target, from } = props
     const { nodes, materials } = useGLTF("./assets/models/world/teleport.glb")
-    const [ playTeleportSound ] = useSound('./assets/audio/teleport.wav')
+    // const [ playTeleportSound ] = useSound('./assets/audio/teleport.wav')
 
     useFrame(() =>
     {
@@ -23,7 +23,7 @@ const Teleport = (props) =>
                 char.current.setTranslation( target )
                 char.current.setLinvel( { x: 0, y: 0, z: 0 } )
                 char.current.setAngvel( { x: 0, y: 0, z: 0 } )
-                playTeleportSound()
+                // playTeleportSound()
             }
         }
     })
