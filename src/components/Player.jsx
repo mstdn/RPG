@@ -320,7 +320,7 @@ const Player = forwardRef((props, ref) =>
                 animated={ true }
                 position={ [ 0, 20, 0 ] }
                 maxVelLimit={ 4 }
-                sprintMult={ 3 }
+                sprintMult={ 2 }
                 jumpVel={ 6 }
                 autoBalanceDampingOnY={ 0.01 }
                 slopeMaxAngle={ 2 }
