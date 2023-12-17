@@ -266,6 +266,36 @@ const PirateBuilding3 = (props) =>
     )
 }
 
+const Cabin = (props) => 
+{
+    const { nodes, materials } = useGLTF("./assets/models/world/buildings/cabin.glb")
+    return (
+        <RigidBody 
+            type="fixed" 
+            colliders={ false }
+            {...props}
+        >
+            <group 
+                position={ [ 0, - 5, 3.6 ] }
+                scale={ 60 } 
+                dispose={null}
+            >
+                <mesh
+                    castShadow
+                    receiveShadow
+                    geometry={nodes.Cabin_shed.geometry}
+                    material={materials.Diffuse_color}
+                    scale={100}
+                />
+            </group>
+            <CuboidCollider 
+                args={ [ 11, 15, 7.2 ] } 
+                position={ [ 0, 0, 0 ] }
+            />
+        </RigidBody>
+    )
+}
+
 
 export default function Buildings()
 {
@@ -283,6 +313,10 @@ export default function Buildings()
 
             </group>
             {/* Grass island */}
+            <group>
+                <Cabin position={ [ 605, 5, 154 ] } rotation-y={ Math.PI * 1.3 } />
+            </group>
+            {/* Grass island */}
             {/* <group>
                 <LargeBuilding1 position={ [ 530, 10.5, 140 ] } rotation-y={ Math.PI * 1.5 } />
                 <LargeBuilding2 position={ [ 580, 12, 140 ] } rotation-y={ Math.PI * 0.5 } />
@@ -297,3 +331,5 @@ export default function Buildings()
 // useGLTF.preload("./assets/models/city/large-building-3.glb")
 useGLTF.preload("./assets/models/world/buildings/house-1.glb")
 useGLTF.preload("./assets/models/world/buildings/house-2.glb")
+useGLTF.preload("./assets/models/world/buildings/house-3.glb")
+useGLTF.preload("./assets/models/world/buildings/cabin.glb")

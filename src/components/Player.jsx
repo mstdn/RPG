@@ -10,164 +10,88 @@ const LIMIT = 200
 
 const Character = forwardRef((props, character) =>
 {
-    const { nodes, materials, animations } = useGLTF("./assets/models/demon.glb")
+    const { nodes, materials, animations } = useGLTF("./assets/models/wizard.glb")
     const { actions } = useAnimations(animations, character)
 
     return (
-        <group scale={ 0.02 } ref={character} {...props} dispose={null}>
-            <primitive object={nodes.mixamorigHips} />
-            <skinnedMesh
-                castShadow
-                receiveShadow
-                name="LP_Eyes_ring"
-                geometry={nodes.LP_Eyes_ring.geometry}
-                material={materials.Demon_MAT}
-                skeleton={nodes.LP_Eyes_ring.skeleton}
-            />
-            <skinnedMesh
-                castShadow
-                receiveShadow
-                name="LP_shoulder2"
-                geometry={nodes.LP_shoulder2.geometry}
-                material={materials.Demon_MAT}
-                skeleton={nodes.LP_shoulder2.skeleton}
-            />
-            <skinnedMesh
-                castShadow
-                receiveShadow
-                name="LP_shoulder1"
-                geometry={nodes.LP_shoulder1.geometry}
-                material={materials.Demon_MAT}
-                skeleton={nodes.LP_shoulder1.skeleton}
-            />
-            <skinnedMesh
-                castShadow
-                receiveShadow
-                name="LP_lower_armor_horns"
-                geometry={nodes.LP_lower_armor_horns.geometry}
-                material={materials.Demon_MAT}
-                skeleton={nodes.LP_lower_armor_horns.skeleton}
-            />
-            <skinnedMesh
-                castShadow
-                receiveShadow
-                name="LP_shoulder_rings"
-                geometry={nodes.LP_shoulder_rings.geometry}
-                material={materials.Demon_MAT}
-                skeleton={nodes.LP_shoulder_rings.skeleton}
-            />
-            <skinnedMesh
-                castShadow
-                receiveShadow
-                name="LP_Lower_shoes"
-                geometry={nodes.LP_Lower_shoes.geometry}
-                material={materials.Demon_MAT}
-                skeleton={nodes.LP_Lower_shoes.skeleton}
-            />
-            <skinnedMesh
-                castShadow
-                receiveShadow
-                name="LP_Upper_body"
-                geometry={nodes.LP_Upper_body.geometry}
-                material={materials.Demon_MAT}
-                skeleton={nodes.LP_Upper_body.skeleton}
-            />
-            <skinnedMesh
-                castShadow
-                receiveShadow
-                name="LP_upper_cloth"
-                geometry={nodes.LP_upper_cloth.geometry}
-                material={materials.Demon_MAT}
-                skeleton={nodes.LP_upper_cloth.skeleton}
-            />
-        </group>
         // <group scale={ 0.02 } ref={character} {...props} dispose={null}>
-        //     <group name="MaleBruteA_Meshes">
+        //     <primitive object={nodes.mixamorigHips} />
         //     <skinnedMesh
-        //       castShadow
-        //       receiveShadow
-        //       name="BattleAxe_GEO"
-        //       geometry={nodes.BattleAxe_GEO.geometry}
-        //       material={materials.blinn7}
-        //       skeleton={nodes.BattleAxe_GEO.skeleton}
-        //     />
-        //     <skinnedMesh
-        //       castShadow
-        //       receiveShadow
-        //       name="MaleBruteA_Hair"
-        //       geometry={nodes.MaleBruteA_Hair.geometry}
-        //       material={materials.MaleBruteA_Hair6}
-        //       skeleton={nodes.MaleBruteA_Hair.skeleton}
-        //     />
-        //     <skinnedMesh
-        //       castShadow
-        //       receiveShadow
-        //       name="MaleBruteA_Bottoms"
-        //       geometry={nodes.MaleBruteA_Bottoms.geometry}
-        //       material={materials.MaleBruteA_Bottom5}
-        //       skeleton={nodes.MaleBruteA_Bottoms.skeleton}
-        //     />
-        //     <skinnedMesh
-        //       castShadow
-        //       receiveShadow
-        //       name="MaleBruteA_Shoes"
-        //       geometry={nodes.MaleBruteA_Shoes.geometry}
-        //       material={materials.MaleBruteA_Shoes6}
-        //       skeleton={nodes.MaleBruteA_Shoes.skeleton}
-        //     />
-        //     <skinnedMesh
-        //       castShadow
-        //       receiveShadow
-        //       name="MaleBruteA_Moustaches"
-        //       geometry={nodes.MaleBruteA_Moustaches.geometry}
-        //       material={materials.MaleBruteA_Moustache5}
-        //       skeleton={nodes.MaleBruteA_Moustaches.skeleton}
-        //     />
-        //     <skinnedMesh
-        //       castShadow
-        //       receiveShadow
-        //       name="MaleBruteA_Eyes"
-        //       geometry={nodes.MaleBruteA_Eyes.geometry}
-        //       material={materials.EyeSpec_MAT4}
-        //       skeleton={nodes.MaleBruteA_Eyes.skeleton}
-        //     />
-        //     <skinnedMesh
-        //       castShadow
-        //       receiveShadow
-        //       name="MaleBruteA_Eyelashes"
-        //       geometry={nodes.MaleBruteA_Eyelashes.geometry}
-        //       material={materials.Lashes_MAT4}
-        //       skeleton={nodes.MaleBruteA_Eyelashes.skeleton}
-        //     />
-        //     <group name="MaleBruteA_Body">
-        //       <skinnedMesh
         //         castShadow
         //         receiveShadow
-        //         name="mesh_7"
-        //         geometry={nodes.mesh_7.geometry}
-        //         material={materials.Body_MAT4}
-        //         skeleton={nodes.mesh_7.skeleton}
-        //       />
-        //       <skinnedMesh
+        //         name="LP_Eyes_ring"
+        //         geometry={nodes.LP_Eyes_ring.geometry}
+        //         material={materials.Demon_MAT}
+        //         skeleton={nodes.LP_Eyes_ring.skeleton}
+        //     />
+        //     <skinnedMesh
         //         castShadow
         //         receiveShadow
-        //         name="mesh_7_1"
-        //         geometry={nodes.mesh_7_1.geometry}
-        //         material={materials.EyeSpec_MAT2}
-        //         skeleton={nodes.mesh_7_1.skeleton}
-        //       />
-        //     </group>
-        //     <skinnedMesh
-        //       castShadow
-        //       receiveShadow
-        //       name="MaleBruteA_Earrings"
-        //       geometry={nodes.MaleBruteA_Earrings.geometry}
-        //       material={materials.phong4}
-        //       skeleton={nodes.MaleBruteA_Earrings.skeleton}
+        //         name="LP_shoulder2"
+        //         geometry={nodes.LP_shoulder2.geometry}
+        //         material={materials.Demon_MAT}
+        //         skeleton={nodes.LP_shoulder2.skeleton}
         //     />
-        //   </group>
-        //   <primitive object={nodes.mixamorigHips} />
+        //     <skinnedMesh
+        //         castShadow
+        //         receiveShadow
+        //         name="LP_shoulder1"
+        //         geometry={nodes.LP_shoulder1.geometry}
+        //         material={materials.Demon_MAT}
+        //         skeleton={nodes.LP_shoulder1.skeleton}
+        //     />
+        //     <skinnedMesh
+        //         castShadow
+        //         receiveShadow
+        //         name="LP_lower_armor_horns"
+        //         geometry={nodes.LP_lower_armor_horns.geometry}
+        //         material={materials.Demon_MAT}
+        //         skeleton={nodes.LP_lower_armor_horns.skeleton}
+        //     />
+        //     <skinnedMesh
+        //         castShadow
+        //         receiveShadow
+        //         name="LP_shoulder_rings"
+        //         geometry={nodes.LP_shoulder_rings.geometry}
+        //         material={materials.Demon_MAT}
+        //         skeleton={nodes.LP_shoulder_rings.skeleton}
+        //     />
+        //     <skinnedMesh
+        //         castShadow
+        //         receiveShadow
+        //         name="LP_Lower_shoes"
+        //         geometry={nodes.LP_Lower_shoes.geometry}
+        //         material={materials.Demon_MAT}
+        //         skeleton={nodes.LP_Lower_shoes.skeleton}
+        //     />
+        //     <skinnedMesh
+        //         castShadow
+        //         receiveShadow
+        //         name="LP_Upper_body"
+        //         geometry={nodes.LP_Upper_body.geometry}
+        //         material={materials.Demon_MAT}
+        //         skeleton={nodes.LP_Upper_body.skeleton}
+        //     />
+        //     <skinnedMesh
+        //         castShadow
+        //         receiveShadow
+        //         name="LP_upper_cloth"
+        //         geometry={nodes.LP_upper_cloth.geometry}
+        //         material={materials.Demon_MAT}
+        //         skeleton={nodes.LP_upper_cloth.skeleton}
+        //     />
         // </group>
+        <group scale={ 1 } ref={character} {...props} dispose={null}>
+            <skinnedMesh
+                castShadow
+                receiveShadow
+                name="mesh_char_19"
+                geometry={nodes.mesh_char_19.geometry}
+                material={materials._019_Wizzir}
+                skeleton={nodes.mesh_char_19.skeleton}
+            />
+            <primitive object={nodes.mixamorigHips} />
+        </group>
     )
 })
 
@@ -315,7 +239,7 @@ const Player = forwardRef((props, ref) =>
         if(ref.current)
         {
             const charPosition = ref.current.translation()
-            // console.log(charPosition)
+            console.log(charPosition)
 
             const { action4, action2, action3 } = getKeys()
 
@@ -367,7 +291,7 @@ const Player = forwardRef((props, ref) =>
         }
     })
     
-    const characterURL = "./assets/models/demon.glb"
+    const characterURL = "./assets/models/wizard.glb"
     const animationSet = 
     {
         idle: "Idle",
@@ -436,4 +360,4 @@ const Player = forwardRef((props, ref) =>
 
 export default Player
 
-useGLTF.preload("./assets/models/demon.glb")
+useGLTF.preload("./assets/models/wizard.glb")

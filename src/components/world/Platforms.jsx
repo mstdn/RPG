@@ -85,15 +85,15 @@ const Block = (props) =>
 /**
  *  Dark stone
  */
-const Rocks = (props) => 
+const Forest = (props) => 
 {
     const [ colorMap, displacementMap, normalMap, roughnessMap, aoMap ] = useTexture(
         [
-            './assets/textures/grass/basecolor.jpg',
-            './assets/textures/grass/height.png',
-            './assets/textures/grass/normal.jpg',
-            './assets/textures/grass/roughness.jpg',
-            './assets/textures/grass/occlusion.jpg',
+            './assets/textures/dirt/basecolor.jpg',
+            './assets/textures/dirt/height.png',
+            './assets/textures/dirt/normal.jpg',
+            './assets/textures/dirt/roughness.jpg',
+            './assets/textures/dirt/occlusion.jpg',
         ]
     )
 
@@ -322,36 +322,9 @@ export default function Platforms()
             <Mars
                 position={ [ - 600, 0, - 150 ] }
             />
-            <Rocks
+            <Forest
                 position={ [ 600, 0, 150 ] }
             />
-            {/* <BeachIsland 
-                position={ [ 0, 0, 0 ] } 
-                boxSize={ [ 250, 4, 250 ] }
-                colBox={ [ 125, 2, 125 ] }
-                texture={ './assets/textures/sand.jpg' }
-                map={ [ 64, 64 ] }
-                color={ "#c49308" }
-                scale={ 1 }
-            /> */}
-            {/* <BeachIsland 
-                position={ [ - 600, 0, - 150 ] } 
-                boxSize={ [ 250, 4, 250 ] }
-                colBox={ [ 125, 2, 125 ] }
-                texture={ './assets/textures/mars2.jpg' }
-                map={ [ 1, 1 ] }
-                color={ "white" }
-                scale={ 1 }
-            /> */}
-            {/* <BeachIsland 
-                position={ [ 600, 0, 150 ] } 
-                boxSize={ [ 250, 4, 250 ] }
-                colBox={ [ 125, 2, 125 ] }
-                texture={ './assets/textures/grass2.jpg' }
-                map={ [ 64, 64 ] }
-                color={ "green" }
-                scale={ 1 }
-            /> */}
         </>
     )
 }

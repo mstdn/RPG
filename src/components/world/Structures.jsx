@@ -247,65 +247,55 @@ const Rover = forwardRef((props, ref) =>
         )
 })
 
-// const Islands = (props) =>
-// {
-//     const { nodes, materials } = useGLTF("./assets/models/world/terrain.glb")
-//     return (
-//         <RigidBody
-//             type="fixed"
-//             colliders="hull"
-//         >
-//             <group scale={ 0.03 } {...props} dispose={null}>
-//             <mesh
-//                 castShadow
-//                 receiveShadow
-//                 geometry={nodes.Terrain_Material_0.geometry}
-//                 material={materials.Material}
-//                 position={[0, 0, 1035.547]}
-//                 scale={1.819}
-//             />
-//             <mesh
-//                 castShadow
-//                 receiveShadow
-//                 geometry={nodes.Terrain001_Material_0.geometry}
-//                 material={materials.Material}
-//                 position={[0, 0, 1780.865]}
-//             />
-//             <mesh
-//                 castShadow
-//                 receiveShadow
-//                 geometry={nodes.Terrain002_Material_0.geometry}
-//                 material={materials.Material}
-//                 position={[0, 0, 209.097]}
-//             />
-//             <mesh
-//                 castShadow
-//                 receiveShadow
-//                 geometry={nodes.Terrain003_Material_0.geometry}
-//                 material={materials.Material}
-//                 position={[0, 0, -3882.207]}
-//                 scale={[4.152, 4.152, 7.654]}
-//             />
-//             <mesh
-//                 castShadow
-//                 receiveShadow
-//                 geometry={nodes.Terrain004_Material_0.geometry}
-//                 material={materials.Material}
-//                 position={[0, 0, -1508.219]}
-//                 scale={[4.152, 4.152, 7.654]}
-//             />
-//             <mesh
-//                 castShadow
-//                 receiveShadow
-//                 geometry={nodes.Terrain005_Material_0.geometry}
-//                 material={materials.Material}
-//                 position={[0, 0, 2863.021]}
-//                 scale={[2.618, 1, 6.583]}
-//             />
-//             </group>
-//         </RigidBody>
-//     )
-// }
+const Axe = forwardRef((props, ref) =>
+{
+    const { nodes, materials } = useGLTF("./assets/models/world/items/axe.glb")
+    return (
+        <RigidBody 
+            // colliders="hull"
+            colliders={ false }
+            // gravityScale={ 1 }
+            // friction={ 1 }
+            restitution={ 0.5 }
+            ref={ ref }
+            canSleep={ false }
+            {...props}
+        >   
+            <group  dispose={null}>
+                <group scale={ 3 } >
+                    <mesh
+                        castShadow
+                        receiveShadow
+                        geometry={nodes["LogWAxe_Cylinder012-Mesh"].geometry}
+                        material={materials.Wood}
+                    />
+                    <mesh
+                        castShadow
+                        receiveShadow
+                        geometry={nodes["LogWAxe_Cylinder012-Mesh_1"].geometry}
+                        material={materials.Wood_l_shade}
+                    />
+                    <mesh
+                        castShadow
+                        receiveShadow
+                        geometry={nodes["LogWAxe_Cylinder012-Mesh_2"].geometry}
+                        material={materials.Handle_Axe}
+                    />
+                    <mesh
+                        castShadow
+                        receiveShadow
+                        geometry={nodes["LogWAxe_Cylinder012-Mesh_3"].geometry}
+                        material={materials.M}
+                    />
+                </group>
+                <CuboidCollider 
+                    args={ [ 1, 1, 1 ] }
+                    position={ [ 0, 0, 0 ] } 
+                />
+            </group>
+        </RigidBody>
+        )
+})
 
 const Sign = (props) =>
 {
@@ -371,16 +361,12 @@ export default function Structures()
     const pirateSkull = useRef()
     const pirateSkull2 = useRef()
     const pirateSkull3 = useRef()
+
+    const axe = useRef()
     
     return(
         <>
-            <Crate ref={ crate } position={ [ 520, 6, 176 ] } rotation-y={ Math.PI * 0.3 } scale={ 1 } />
-            <Crate ref={ crate1 } position={ [ 565, 8, 120 ] } scale={ 1.4 } rotation-y={ Math.PI * 0.2 } />
-            <Crate ref={ crate2 } position={ [ 634, 12.5, 121 ] } scale={ 1.2 } rotation-y={ Math.PI * 0.7 } />
-            <Crate ref={ crate3 } position={ [ 670, 14, 160 ] } scale={ 1 } />
             
-            <Barrel ref={ barrel } position={ [ 510, 11, 213 ] } scale={ 1.5 } />
-            <Barrel ref={ barrel1 } position={ [ 607, 7.9, 198 ] } scale={ 1.2 } />
             
             <Rover ref={ rover } position={ [ - 540, 3.1, - 200 ] } scale={ 1.2 } />
 
@@ -403,6 +389,19 @@ export default function Structures()
                 <PirateSkull ref={ pirateSkull } position={ [ - 31, 7.9, - 69 ] } rotation-y={ Math.PI * 0.3 } />
                 <PirateSkull ref={ pirateSkull2 } position={ [ 60, 8, 82 ] } rotation-y={ Math.PI * 1 } />
                 <PirateSkull ref={ pirateSkull3 } position={ [ - 13, 8, 10 ] } rotation-y={ Math.PI * 0.7 } />
+            </group>
+
+            {/* Forest */}
+            <group>
+                <Crate ref={ crate } position={ [ 597, 6, 144 ] } rotation-y={ Math.PI * 0.3 } scale={ 1 } />
+                <Crate ref={ crate1 } position={ [ 565, 8, 120 ] } scale={ 1.4 } rotation-y={ Math.PI * 0.2 } />
+                <Crate ref={ crate2 } position={ [ 634, 12.5, 121 ] } scale={ 1.2 } rotation-y={ Math.PI * 0.7 } />
+                <Crate ref={ crate3 } position={ [ 670, 14, 160 ] } scale={ 1 } />
+                
+                <Barrel ref={ barrel } position={ [ 510, 11, 213 ] } scale={ 1.5 } />
+                <Barrel ref={ barrel1 } position={ [ 607, 7.9, 198 ] } scale={ 1.2 } />
+
+                <Axe ref={ axe } position={ [ 590, 11, 134 ] } />
             </group>
         </>
     )
