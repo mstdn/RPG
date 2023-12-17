@@ -64,7 +64,7 @@ export default function Lights(props)
         </>
         )} */}
         <Environment
-            // preset='night' 
+            // preset='sunset' 
             // files="./assets/images/map.hdr"
             files="./assets/images/sunset.hdr"
         />

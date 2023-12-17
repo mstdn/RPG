@@ -59,3 +59,5 @@ export default function Forest()
         </>
     )
 }
+
+useGLTF.preload("./assets/models/world/trees/dead-tree.glb")

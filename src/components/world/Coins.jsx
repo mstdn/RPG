@@ -81,3 +81,5 @@ export default function Coins(props)
         </>
     )
 }
+
+useGLTF.preload("./assets/models/coin.glb")

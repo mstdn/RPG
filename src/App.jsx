@@ -16,18 +16,18 @@ export default function App()
     const [ downgradedPerformance, setDowngradedPerformance ] = useState(false)
     const [ started, setStarted ] = useState(false)
 
-    const [ paused, setPaused ] = useState(false)
-    useEffect(() => 
-    {
-        document.addEventListener("visibilitychange", () => 
-        {      
-            setPaused(true)
-        })
-        return() =>
-        {
-            document.removeEventListener("visibilitychange", () => {} )
-        }
-    }, [])
+    // const [ paused, setPaused ] = useState(false)
+    // useEffect(() => 
+    // {
+    //     document.addEventListener("visibilitychange", () => 
+    //     {      
+    //         setPaused(true)
+    //     })
+    //     return() =>
+    //     {
+    //         document.removeEventListener("visibilitychange", () => {} )
+    //     }
+    // }, [])
 
     const keyboardMap = 
     [
@@ -60,15 +60,15 @@ export default function App()
         <KeyboardControls map={ keyboardMap }>
             <Canvas
                 shadows={ !downgradedPerformance }
-                camera={ { far: 900, near: 0.1, } }
+                camera={ { far: 480, near: 0.1, } }
                 dpr={ [ 1, 1.5 ] }
-                onClick={() => setPaused(false)}
+                // onClick={() => setPaused(false)}
                 // style={{ background: '#000000' }}
             >
-                    <fog attach="fog" args={["#ffffff", 10, 900]} />
+                    <fog attach="fog" args={["#ffffff", 10, 500]} />
                     <Physics
                         timeStep="vary"
-                        paused={ paused }
+                        // paused={ paused }
                         // debug
                         gravity={ [ 0, - 9.81, 0 ] }
                         >

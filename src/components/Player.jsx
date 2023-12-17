@@ -139,11 +139,11 @@ const Player = forwardRef((props, ref) =>
                 playImpactSound()
                 hit.collider.parent().applyImpulse( 
                     { 
-                        x: - (originBlock.x - targetBlock.x) * 100, 
-                        y: - (originBlock.y - targetBlock.y) * 100, 
-                        z: - (originBlock.z - targetBlock.z) * 100 
-                    } )
-                    hit.collider.parent().applyTorqueImpulse( { x: 50, y: 50, z: 50 } )
+                        x: - (originBlock.x - targetBlock.x) * 200, 
+                        y: - (originBlock.y - targetBlock.y) * 200, 
+                        z: - (originBlock.z - targetBlock.z) * 200 
+                    }, true )
+                    hit.collider.parent().applyTorqueImpulse( { x: 50, y: 50, z: 50 }, true )
             }, 500)
             // hit.collider.parent().applyImpulseAtPoint(10, hit.point, true)
             // console.log(hit.collider.parent().bodyType())
@@ -193,8 +193,8 @@ const Player = forwardRef((props, ref) =>
                             x: - (originBlock.x - targetBlock.x) * 100,
                             y: 125, 
                             z: - (originBlock.z - targetBlock.z) * 100,
-                        } )
-                        hit.collider.parent().applyTorqueImpulse( { x: 0, y: 25, z: 0 } )
+                        }, true )
+                        hit.collider.parent().applyTorqueImpulse( { x: 0, y: 25, z: 0 }, true )
                         canAttack = true
                         hasHit = false
                     }, 500)
@@ -239,7 +239,7 @@ const Player = forwardRef((props, ref) =>
         if(ref.current)
         {
             const charPosition = ref.current.translation()
-            console.log(charPosition)
+            // console.log(charPosition)
 
             const { action4, action2, action3 } = getKeys()
 

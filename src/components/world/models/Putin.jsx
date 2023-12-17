@@ -902,4 +902,5 @@ export function Putin(props)
   );
 }
 
-useFBX.preload("./assets/models/world/npcs/putin.glb")
+// useFBX.preload("./assets/models/world/npcs/putin.glb")
+useGLTF.preload("./assets/models/world/npcs/putin.glb")

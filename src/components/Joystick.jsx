@@ -17,8 +17,8 @@ export default function Joystick()
     const cylinderGeometry = useMemo(() => new CylinderGeometry(2.3, 2.1, 0.3, 32, 1), [])
     const sphereGeometry = useMemo(() => new SphereGeometry(1.4, 32, 8), [])
     const boxGeometry = useMemo(() => new BoxGeometry(1, 1, 1), [])
-    const activeMaterial = useMemo(() => new MeshBasicMaterial({ color: '#ffffff', wireframe: false }), [])
-    const passiveMaterial = useMemo(() => new MeshBasicMaterial({ color: '#ffffff', transparent: true, opacity: 0.8 }), [])
+    const activeMaterial = useMemo(() => new MeshBasicMaterial({ color: '#ffd7b8', wireframe: false }), [])
+    const passiveMaterial = useMemo(() => new MeshBasicMaterial({ color: '#ffd7b8', transparent: true, opacity: 0.6 }), [])
 
     return(
         <>

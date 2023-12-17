@@ -67,10 +67,10 @@ body {
 .controls .raw p
 {
     text-align: center;
-    color: #FFFFFF;
+    color: #4a3626;
     font-family: RPG;
-    font-size: 20px;
-    padding-top: 0px;
+    font-size: 18px;
+    padding-top: 2px;
 }
 
 .controls .key
@@ -78,8 +78,8 @@ body {
     width: 35px;
     height: 35px;
     margin: 4px;
-    border: 2px solid #ffffff;
-    background: #ffffff44;
+    border: 2px solid #ffd7b8;
+    background: #ffd7b844;
 }
 
 .controls .key.large
@@ -89,5 +89,5 @@ body {
 
 .controls .key.active
 {
-    background: #ffffff99;
+    background: #ffd7b899;
 }

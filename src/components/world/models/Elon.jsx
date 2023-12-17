@@ -1,19 +1,26 @@
 import React, { useRef } from "react"
-import { useGLTF, useAnimations } from "@react-three/drei"
+import { useGLTF, useAnimations, PositionalAudio } from "@react-three/drei"
 import { RigidBody, CuboidCollider } from "@react-three/rapier"
-import { useFrame } from "@react-three/fiber"
+import { useFrame, useLoader } from "@react-three/fiber"
 import { Vector3 } from "three"
 import useSound from "use-sound"
+import * as THREE from "three"
 
 export function Elon(props) 
 {
-    const { char, pos } = props
+    const { char } = props
     const group = useRef()
     const elon = useRef()
     const { nodes, materials, animations } = useGLTF("./assets/models/world/elon.glb")
-    const [ playElonSound ] = useSound('./assets/audio/musk.wav', { volume: 1, interrupt: true })
+    // const [ playElonSound ] = useSound('./assets/audio/musk.wav', { volume: 1, interrupt: true })
     const { actions } = useAnimations(animations, group)
+    
     let play = true
+    const audio = useRef()
+    // const loader = new THREE.AudioLoader()
+    // const audioFile = useLoader(loader, './assets/audio/musk.wav')
+    // const audioFile = useLoader(THREE.AudioLoader, './assets/audio/musk.wav')
+
 
     useFrame(() =>
     {
@@ -26,14 +33,12 @@ export function Elon(props)
             const playerPosition = char.current.translation()
             const position = new Vector3(playerPosition.x, playerPosition.y, playerPosition.z)
             const distance = elonVector.distanceTo(position)
+            // const elonLocation = new Vector3(pos[0], pos[1], pos[2])
 
-            const elonLocation = new Vector3(pos[0], pos[1], pos[2])
-            
-            // console.log(elonLocation)            
-            
             if( distance < 5 && play )
             {
-                playElonSound()
+                // playElonSound()
+                audio.current.play()
                 play = false
             } 
             else if( distance > 5 && !play )
@@ -54,6 +59,16 @@ export function Elon(props)
     })
 
   return (
+    <group>
+        <PositionalAudio
+            ref={ audio }
+            url="./assets/audio/musk.wav"
+            // url={ audioFile }
+            distance={ 10 }
+            loop={ false }         
+        />
+        {/* { !play && (
+            ) } */}
         <RigidBody
             ref={ elon }
             colliders={ false }
@@ -224,7 +239,8 @@ export function Elon(props)
                 position={ [ 0, 0, 0 ] } 
             />
         </RigidBody>    
+    </group>
   );
 }
 
-useGLTF.preload("./assets/models/world/elon.glb");
+useGLTF.preload("./assets/models/world/elon.glb")

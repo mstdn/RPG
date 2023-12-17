@@ -9,8 +9,8 @@ export default function MobileInterface()
     return <>
         <div className="mobileInterface">
             <div className='flex justify-end pr-2 pt-2'>
-                <div className='flex bg-white bg-opacity-50 rounded-md p-2 border border-[#000000]'>
-                    <div className='text-[15px] pt-1 text-[#000000]'>
+                <div className='flex items-center'>
+                    <div className='text-[15px] pt-1 text-[#4a3626]'>
                         { coins } / { totalCoins }
                     </div>
                     <div className='pl-2'>

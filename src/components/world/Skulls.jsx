@@ -20,8 +20,9 @@ const Object = () =>
         ref={ (element) => objectRef.current[index] = element }
         key={ index }
         position={ objectPositions[index] }
-        scale={ 1 + Math.random() * 0.5 }
-        rotation-y={ Math.PI * Math.random() }
+        // scale={ 1 + Math.random() * 0.5 }
+        scale={ 1 }
+        rotation-y={ Math.PI * index / positionsCount }
     >
         <group scale={ 100 } position={ [ 0, 0, 0 ] }>
             <mesh

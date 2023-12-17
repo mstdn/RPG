@@ -84,8 +84,8 @@ export default function Texts(props)
                 lineHeight={ 2 }
                 letterSpacing={ 0.05 }
                 textAlign="center"
-                hasAudio={ true }
-                sound={ './assets/audio/welcome.wav' }
+                hasAudio={ false }
+                // sound={ './assets/audio/welcome.wav' }
                 repeat={ false }
                 dis={ 10 }
                 char={ char }

@@ -3,87 +3,6 @@ import { useGLTF } from "@react-three/drei"
 import { RigidBody, CuboidCollider } from "@react-three/rapier"
 
 
-// const Crate = forwardRef((props, ref) =>
-// {
-//     const { nodes, materials } = useGLTF("./assets/models/world/crate.glb")
-//     return (
-//         <RigidBody 
-//             // colliders="hull"
-//             colliders={ false }
-//             // gravityScale={ 1 }
-//             // friction={ 1 }
-//             restitution={ 0.5 }
-//             ref={ ref }
-//             canSleep={ false }
-//             {...props}
-//         >   
-//             <group  dispose={null}>
-//                 <group scale={ 150 }>
-//                     <mesh
-//                         castShadow
-//                         receiveShadow
-//                         geometry={nodes.Crate_1.geometry}
-//                         material={materials.Wood}
-//                     />
-//                     <mesh
-//                         castShadow
-//                         receiveShadow
-//                         geometry={nodes.Crate_2.geometry}
-//                         material={materials.Wood_Light}
-//                     />
-
-//                 </group>
-//                 <CuboidCollider 
-//                     args={ [ 1.5, 1.5, 1.5 ] }
-//                     position={ [ 0, 0, 1.5 ] } 
-//                 />
-//             </group>
-//         </RigidBody>
-//         )
-// })
-
-
-
-// const Barrel = forwardRef((props, ref) =>
-// {
-//     const { nodes, materials } = useGLTF("./assets/models/world/barrel.glb")
-//     return (
-//         <RigidBody 
-//             colliders="hull"
-//             // colliders={ false }
-//             gravityScale={ 1.5 }
-//             // friction={ 1 }
-//             restitution={ 0.5 }
-//             ref={ ref }
-//             canSleep={ false }
-//         >   
-//             <group {...props} dispose={null}>
-//                 <group rotation={[-Math.PI / 2, 0, 0]} scale={ 100 }>
-//                     <mesh
-//                         castShadow
-//                         receiveShadow
-//                         geometry={nodes.ExplodingBarrel_1.geometry}
-//                         material={materials.Grey}
-//                     />
-//                     <mesh
-//                         castShadow
-//                         receiveShadow
-//                         geometry={nodes.ExplodingBarrel_2.geometry}
-//                         material={materials.Red}
-//                     />
-//                     <mesh
-//                         castShadow
-//                         receiveShadow
-//                         geometry={nodes.ExplodingBarrel_3.geometry}
-//                         material={materials.White}
-//                     />
-//                 </group>
-//             </group>
-//         </RigidBody>
-//         )
-// })
-
-
 
 const PirateChestOpen = forwardRef((props, ref) =>
 {
@@ -113,38 +32,6 @@ const PirateChestOpen = forwardRef((props, ref) =>
             <CuboidCollider 
                 args={ [ 1.5, 1.8, 1.5 ] } 
                 position={ [ 0, 1.8, 0 ] }
-            />
-        </RigidBody>
-        )
-})
-
-const PirateSkull = forwardRef((props, ref) =>
-{
-    const { nodes, materials } = useGLTF("./assets/models/world/pirate/skull.glb")
-    return (
-        <RigidBody 
-            colliders={ false }
-            gravityScale={ 1.5 }
-            // friction={ 1 }
-            // restitution={ 0.5 }
-            ref={ ref }
-            canSleep={ false }
-            {...props}
-        >   
-            <group dispose={null}>
-                <group scale={ 100 }>
-                    <mesh
-                        castShadow
-                        receiveShadow
-                        geometry={nodes.Environment_Skulls.geometry}
-                        material={materials.Atlas}
-                        scale={1}
-                    />
-                </group>
-            </group>
-            <CuboidCollider 
-                args={ [ 1.5, 1.8, 2 ] } 
-                position={ [ 0, 1.8, 0.2 ] }
             />
         </RigidBody>
         )
@@ -340,3 +227,4 @@ export default function Structures()
 useGLTF.preload("./assets/models/world/rover.glb")
 useGLTF.preload("./assets/models/world/wooden-sign.glb")
 useGLTF.preload("./assets/models/world/pirate/chest-gold.glb")
+useGLTF.preload("./assets/models/world/items/axe.glb")
